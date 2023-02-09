@@ -1,0 +1,267 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: none;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+}
+
+.userImg {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  box-shadow: 0px 1px 5px 0px grey;
+
+}
+.userImg2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  box-shadow: 0px 1px 5px 0px grey;
+
+}
+.user{
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.user span{
+  letter-spacing: 1px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* search bar */
+
+.bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 4px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px solid #dcdcdc;
+}
+Link{
+  text-decoration: none;
+}
+.bar1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 4px;
+  width: 98%;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+}
+
+.bar:hover {
+  box-shadow: 1px 1px 3px 1px #dcdcdc;
+}
+
+.bar:focus-within {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+  outline: none;
+}
+
+.searchbar {
+  height: 35px;
+  margin-top: 0;
+  border: none;
+  padding: 0 16px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+
+}
+
+.voice {
+  height: 20px;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+/*  */
+.ContactComponent {
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 4px 8px;
+  background-color: white;
+  transition: 0.3s;
+
+}
+
+.ContactComponent2 {
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 0 5px;
+  background-color: #EFEFEF;
+  transition: 0.3s;
+
+}
+
+.App {
+  overflow: hidden;
+  color: var(--black);
+  background: #f3f3f3;
+  padding: 1rem 1rem;
+}
+
+/* blur */
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: linear-gradient(#1845ad, #23a2f6);  filter: blur(102px);
+}
+
+
+.span2 {
+  background: linear-gradient(#1845ad, #23a2f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 30px;
+}
+
+ContactComponent2,
+.ContactComponent:hover {
+  background-color: #EFEFEF;
+}
+.search{
+  padding: 5px;
+}
+
+.messagecontainer {
+  width: 100%;
+  background-color: #eeeeee;
+ 
+  border-radius: 20px;
+  height: 90vh;
+  padding: 16px;
+  box-shadow: inset 0px 0px 10px grey;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  color: #303030;
+}
+.messagecontainer2{width: 100%;
+height: 100vh;
+padding: 16px;
+place-items: self-end;
+display: flex;
+overflow-y: auto;
+flex-direction: column;
+color: #303030;
+}
+.msg{
+  display: flex;
+  background: red;
+  max-width: 40%;
+}
+.msg2{
+  display: flex;
+    background: red;
+    justify-content: flex-end;
+    max-width: 40%;
+}
+
+.messagebox {
+  max-width: 50%;
+  padding: 10px;
+  display: flex;
+  margin: 10px 0;
+
+}
+
+.messagebox h2 {
+  max-width: 70%;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  margin: 10px 0;
+
+}
+
+.messagebox2 {
+  max-width: 50%;
+  padding: 10px;
+  display: flex;
+  place-self: flex-end;
+  margin: 10px 0;
+  position: relative;
+
+}
+
+.messagebox2 h2 {
+  padding: 10px;
+  background-color: green;
+  display: flex;
+  margin: 10px 0;
+
+}
+.backarrow{
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .lay {
+ display: block;
+ position: absolute;
+    left: 0px;
+    width: 100%;
+  background: #eeee;
+  }
+  .chatwidth{
+    width: 100%;
+  }
+.App{
+  
+    padding: 1rem 0rem;
+}
+
+.backarrow{
+  display: block;
+  text-decoration: none;
+}
+  .thumbnail {
+    display: none;
+  }
+
+  .bar {
+    margin: 4px 4px;
+    padding: 5px 0;
+    width: 99%;
+    border: 2px solid #ccc;  }
+  .messagecontainer{
+    width: 98%;
+    height: 82vh;
+    margin: 0px 5px;
+  }
+}
+
+
+
+
+
