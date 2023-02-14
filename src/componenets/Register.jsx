@@ -7,15 +7,11 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/system';
-
 const Register = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false)
     const Navigate = useNavigate()
 
-    const handleClicks = () => {
-       
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -31,6 +27,12 @@ const Register = () => {
             const storageRef = ref(storage, displayName);
             const uploadTask = uploadBytesResumable(storageRef, file);
             uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(`Upload is ${progress}% done`);
+                },
                 (error) => {
                     console.log(error)
                 },
@@ -64,8 +66,9 @@ const Register = () => {
 
         }
 
-     
+
     }
+
     return (
         <>
             <div class="background">
