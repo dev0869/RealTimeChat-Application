@@ -120,6 +120,9 @@ Link {
   transition: 0.3s;
 
 }
+.ContactComponentS2{
+  padding: 9PX;
+}
 
 .ContactComponent2 {
   cursor: pointer;

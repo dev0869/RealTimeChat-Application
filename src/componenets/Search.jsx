@@ -83,7 +83,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle'; const Search = () => 
 
                 </div>
 
-                {user && <div className='ContactComponent' onClick={handleSelect} >
+                {user && <div className='ContactComponentS2' onClick={handleSelect} >
                     <Stack direction={'row'} alignItems={'center'} p={1} gap={1} justifyContent={'space-between'}>
                         <Stack direction={'row'} alignItems={'center'} gap={1}  >
                             <img src={user && user.photoURL} alt='img' className='userImg' />

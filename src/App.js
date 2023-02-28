@@ -5,7 +5,7 @@ import { Stack } from '@mui/material'
 import Register from './componenets/Register'
 import Login from './componenets/Login'
 import './index.css'
-import { Route, Routes,Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import { useChatContext } from './context.js/AuthContext'
 
 const Main = () => {
@@ -20,7 +20,7 @@ const Main = () => {
     <>
       <div
         className="App"
-      
+
       >
         <div className="blur" style={{ top: "-18%", right: "0" }}></div>
         <div className="blur" style={{ top: "36%", left: "-8rem" }}></div>
@@ -48,15 +48,32 @@ const Main = () => {
 
 const App = () => {
   const { currentUser } = useChatContext()
- 
+
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+
+    return children
+  };
+
+
   return (
     <>
       <Routes>
-      <Route path="/" element={currentUser ? <Main /> : <Navigate to="/login" />} />
+        <Route path="/"
+
+          index
+          element={
+            <ProtectedRoute>
+              <Main />
+            </ProtectedRoute>
+          }
+        ></Route>
 
         <Route path='/login' exact element={<Login />} />
         <Route path='/register' exact element={<Register />} />
-  
+
       </Routes>
 
     </>
