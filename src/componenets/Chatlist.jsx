@@ -62,17 +62,17 @@ const Chatlist = () => {
                        <Stack direction={'row'} gap={1} alignItems={'center'}>
                         
                             <Link to={'/'} className='backarrow' onClick={'REFRESH'} >
-                                <KeyboardBackspaceIcon sx={{ fontSize: '19px', color: '#f09819' }} />
+                                <KeyboardBackspaceIcon sx={{ fontSize: '30px', color: 'orangered' }} />
 
                             </Link>
-                            <Stack direction={'row'} alignItems={'center'} gap={1}>
-                                <img src={data && data.user?.photoURL} alt='img' loading='lazy' className='userImg2' />
-                                <h2><span>{data && data.user?.displayName}</span></h2>
-                            </Stack>
-
+                       
 
                         </Stack>
-                        
+                        <Stack direction={'row'} alignItems={'center'} gap={1}>
+                                <img src={data && data.user?.photoURL} alt='img' loading='lazy' className='userImg2' />
+                                <h2 style={{fontSize:'20px'}}><span>{data && data.user?.displayName}</span></h2>
+                            </Stack>
+
 
                         <Link style={{ color: 'orangered' }} onClick={() => signOut(auth)} to={'/login'}>
                             <span>

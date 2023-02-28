@@ -85,7 +85,6 @@ input {
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 18px;
-    font-size: 14px;
     font-weight: 300;
 }
 
@@ -169,12 +168,12 @@ button {
     border: none;
     padding: 10px 15px;
     color: white;
-    background: linear-gradient(to right, #f09819, #ff512f);
+    background: linear-gradient(to right, #f04b19, #ff512f);
     cursor: pointer;
 }
 
 span {
-    background: linear-gradient(to right, #f09819, #ff512f);
+    background: linear-gradient(to right, #da9938, #ff512f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border-radius: 30px;
@@ -277,9 +276,7 @@ img {
     background: linear-gradient(to right, #ff512f, #f09819);
     padding: 15px 20px;
     color: white;
-    font-weight: bold;
-    padding-right: 28px;
-    font-size: 14px;
+    box-shadow: 2px 2px 3px #ff512f;
     border-radius: 0px 17px 17px 17px;
 }
 
@@ -296,10 +293,11 @@ img {
 
 .ownertext {
     max-width: 100%;
+    box-shadow: 2px 2px 3px #1845ad;
     background: linear-gradient(#1845ad, #23a2f6);
     color: white;
     border-radius: 17px 0px 17px 17px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-right: 28px;

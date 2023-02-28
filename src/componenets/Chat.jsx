@@ -56,9 +56,9 @@ const ContactComponent = () => {
                                 <Stack direction={'row'} alignItems={'center'} p={1} margin={'10px 12px'} justifyContent={'space-between'}>
                                     <Stack direction={'row'} alignItems={'center'} gap={2} position={'relative'} >
                                         <img src={chat[1].userInfo && chat[1].userInfo.photoURL} alt='' className='userImg' />
-                                        <Stack direction={'column'} gap={1} >
+                                        <Stack direction={'column'}  >
                                             <h2 className='user'>{chat[1].userInfo && chat[1].userInfo.displayName}</h2>
-                                            <h2><span>{chat[1].userInfo && chat[1].lastMessage?.text?.substring(0, 20)}</span> </h2>
+                                            <h2><span style={{fontSize:'16px'}}>{chat[1].userInfo && chat[1].lastMessage?.text?.substring(0, 20)}</span> </h2>
                                         </Stack>
                                         <hr />
                                     </Stack>
@@ -112,7 +112,7 @@ const Chat = ({ setChat, user }) => {
         <>
             <Stack direction={'column'} sx={{ height: '100vh', overflowY: 'auto' }}>
                 <Stack direction={'row'} justifyContent={'space-between'} p={'14px'} sx={{ background: '#EFEFEF' }} alignItems={'center'}>
-                    <h1>Dev<span>T</span>alk</h1>
+                    <h1 className='logo'>Dev<span>T</span>alk</h1>
                     <Stack direction={'row'} gap={'10px'} alignItems={'center'}>
 
                         <StyledBadge
@@ -124,8 +124,8 @@ const Chat = ({ setChat, user }) => {
                         </StyledBadge>
 
                         <Link style={{ color: 'orangered' }} onClick={() => signOut(auth)} to={'/login'}>
-                            <span>
-                                <LogoutIcon sx={{ fontSize: '300%' }} />
+                            <span className='logout'>
+                                <LogoutIcon sx={{ fontSize: '350%' }} />
                             </span>
                         </Link>
                     </Stack>

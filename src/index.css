@@ -24,14 +24,18 @@ html {
 }
 
 .userImg {
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
 
   box-shadow: 0px 1px 5px 0px grey;
 
 }
+.logout{
+  display: none;
+}
+
 .userImg2 {
   width: 40px;
   height: 40px;
@@ -41,11 +45,13 @@ html {
   box-shadow: 0px 1px 5px 0px grey;
 
 }
-.user{
-  font-size: 16px;
+
+.user {
+  font-size: 18px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.user span{
+
+.user span {
   letter-spacing: 1px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -61,13 +67,16 @@ html {
   border-radius: 10px;
   border: 2px solid #dcdcdc;
 }
-Link{
+
+Link {
   text-decoration: none;
 }
+
 .bar1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 4px;
   width: 98%;
   border-radius: 10px;
@@ -134,7 +143,8 @@ Link{
   width: 22rem;
   height: 14rem;
   border-radius: 50%;
-  background: linear-gradient(#1845ad, #23a2f6);  filter: blur(102px);
+  background: linear-gradient(#1845ad, #23a2f6);
+  filter: blur(102px);
 }
 
 
@@ -149,14 +159,15 @@ ContactComponent2,
 .ContactComponent:hover {
   background-color: #EFEFEF;
 }
-.search{
+
+.search {
   padding: 5px;
 }
 
 .messagecontainer {
   width: 100%;
   background-color: #eeeeee;
- 
+
   border-radius: 20px;
   height: 90vh;
   padding: 16px;
@@ -166,25 +177,29 @@ ContactComponent2,
   flex-direction: column;
   color: #303030;
 }
-.messagecontainer2{width: 100%;
-height: 100vh;
-padding: 16px;
-place-items: self-end;
-display: flex;
-overflow-y: auto;
-flex-direction: column;
-color: #303030;
+
+.messagecontainer2 {
+  width: 100%;
+  height: 100vh;
+  padding: 16px;
+  place-items: self-end;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  color: #303030;
 }
-.msg{
+
+.msg {
   display: flex;
   background: red;
   max-width: 40%;
 }
-.msg2{
+
+.msg2 {
   display: flex;
-    background: red;
-    justify-content: flex-end;
-    max-width: 40%;
+  background: red;
+  justify-content: flex-end;
+  max-width: 40%;
 }
 
 .messagebox {
@@ -221,30 +236,45 @@ color: #303030;
   margin: 10px 0;
 
 }
-.backarrow{
+
+.backarrow {
   display: none;
 }
 
 @media only screen and (max-width: 900px) {
+  .ContactComponent{
+    box-shadow:1px 2px 2px 1px #ecc5c59e
+  }
+  .bar1{
+    padding: 10px 0;
+    font-size: 19px;
+  }
+  .searchbar{
+    font-size: 18px;
+  }
   .lay {
- display: block;
- position: absolute;
+    display: block;
+    position: absolute;
     left: 0px;
     width: 100%;
-  background: #eeee;
+    background: #eeee;
   }
-  .chatwidth{
+
+  .chatwidth {
     width: 100%;
   }
-.App{
-  
-    padding: 1rem 0rem;
-}
+ 
 
-.backarrow{
-  display: block;
-  text-decoration: none;
-}
+  .App {
+
+    padding: 1rem 0rem;
+  }
+
+  .backarrow {
+    display: block;
+    text-decoration: none;
+  }
+
   .thumbnail {
     display: none;
   }
@@ -253,15 +283,17 @@ color: #303030;
     margin: 4px 4px;
     padding: 5px 0;
     width: 99%;
-    border: 2px solid #ccc;  }
-  .messagecontainer{
-    width: 98%;
-    height: 82vh;
-    margin: 0px 5px;
+    border: 2px solid #ccc;
+  }
+
+  .messagecontainer {
+    width: 94%;
+    margin: 0px 11px;
+}
+  .logo{
+    font-size: 26px;
+  }
+  .logout{
+    display: block;
   }
 }
-
-
-
-
-

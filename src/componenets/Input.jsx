@@ -98,7 +98,7 @@ const Input = () => {
           />
           <Stack direction={'row'} alignItems={'center'} gap={3} sx={{ padding: '0 12px' }}>
 
-            <label htmlFor="file">     <AddPhotoAlternateIcon style={{ fontSize: '24px', cursor: 'pointer', color: 'orangered', marginTop: '-7px', position: 'relative', top: '-3px' }} /></label>
+            <label htmlFor="file">     <AddPhotoAlternateIcon style={{ fontSize: '28px', cursor: 'pointer', color: 'orangered', marginTop: '-7px', position: 'relative', top: '-3px' }} /></label>
             <input
               type="file"
               style={{ display: "none" }}
@@ -106,7 +106,7 @@ const Input = () => {
               onChange={(e) => setImg(e.target.files[0])}
             />
 
-            <SendIcon style={{ fontSize: '24px', cursor: 'pointer', color: '#0076F7' }} onClick={handleSend} />
+            <SendIcon style={{ fontSize: '28px', cursor: 'pointer', color: '#0076F7' }} onClick={handleSend} />
           </Stack>
 
         </div>
