@@ -81,7 +81,7 @@ const Register = () => {
                 </Stack>
                 <input type="text" placeholder="UserName" id="name" autoComplete='off' required />
                 <input type="text" placeholder="Email " id="username" autoComplete='off' required />
-                <input type="password"       pattern="\d{6} " placeholder="enter 6 digits Password" id="password" />
+                <input type="password"  placeholder="enter 6 digits Password" id="password" />
                 <br />
                 {
                     error ? <p>User already exist</p> : null
