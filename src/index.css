@@ -23,6 +23,11 @@ html {
 
 }
 
+#logo {
+  font-size: 26px;
+  width: 120px;
+  height: 100%;
+}
 .userImg {
   width: 52px;
   height: 52px;
@@ -299,8 +304,10 @@ ContactComponent2,
     margin: 0px 11px;
   }
 
-  .logo {
+  #logo {
     font-size: 26px;
+    width: 38%;
+    height: 100%;
   }
 
   .logout {

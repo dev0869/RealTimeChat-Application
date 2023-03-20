@@ -11,59 +11,8 @@ import imageCompression from 'browser-image-compression';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false)
-    const Navigate = useNavigate()
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     const file = e.target[0].files[0];
-    //     const displayName = e.target[1].value;
-    //     const email = e.target[2].value;
-    //     const password = e.target[3].value;
-    //     setLoading(true);
-
-    //     try {
-    //         const res = await createUserWithEmailAndPassword(auth, email, password);
-    //         console.log(res)
-    //         const storageRef = ref(storage, displayName);
-    //         const uploadTask = uploadBytesResumable(storageRef, file);
-    //         uploadTask.on(
-    //             (error) => {
-    //                 console.log(error)
-    //             },
-    //             () => {
-
-    //                 getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-    //                     await updateProfile(res.user, {
-    //                         displayName,
-    //                         photoURL: downloadURL
-    //                     })
-    //                     // adding new data to db
-    //                     await setDoc(doc(db, "Users", res.user.uid), {
-    //                         uid: res.user.uid,
-    //                         displayName,
-    //                         email,
-    //                         photoURL: downloadURL
-
-    //                     });
-    //                     // adding chat data
-    //                     await setDoc(doc(db, "userChats", res.user.uid), {});
-    //                     Navigate('/')
-    //                 });
-    //             }
-    //         )
-
-
-    //     } catch (error) {
-    //         console.log('error', error)
-    //         setError(true)
-    //         setLoading(false);
-
-    //     }
-
-
-    // }
+    const [error, setError] = useState(false);
+    const Navigate = useNavigate();
 
 const handleSubmit = async (e) => {
   e.preventDefault();
