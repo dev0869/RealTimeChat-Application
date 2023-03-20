@@ -17,6 +17,7 @@ const Input = () => {
   const { data } = useContext(MessageContext)
 
   const handleSend = async () => {
+
     setText('');
     setImg(null);
     if (img) {
@@ -81,11 +82,7 @@ const Input = () => {
 
   return (
     <>
-
-
-
       <div className="search">
-
         <div className="bar1">
           <input
             className='searchbar'
@@ -106,7 +103,9 @@ const Input = () => {
               onChange={(e) => setImg(e.target.files[0])}
             />
 
-            <SendIcon style={{ fontSize: '28px', cursor: 'pointer', color: '#0076F7' }} onClick={handleSend} />
+            {
+              text && <SendIcon style={{ fontSize: '28px', cursor: 'pointer', color: '#0076F7' }} onClick={handleSend} />
+            }
           </Stack>
 
         </div>

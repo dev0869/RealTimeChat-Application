@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './indexes.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
 
     const [loading, setLoading] = useState(false);
-    const [error,setError]=useState(false)
-
- 
+    const [error, setError] = useState(false)
     const Navigate = useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,7 +39,7 @@ const Login = () => {
                 <h3 className='logo'>Dev<span>T</span>alk</h3>
                 <br />
                 <h3>Login</h3>
-            
+
                 <label htmlFor="username"><span>Email</span></label>
                 <input type="text" placeholder="Email" id="username" required />
 
@@ -53,7 +51,7 @@ const Login = () => {
                 </button>
                 <div class="social">
                     <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '13px' }}>you don't have any account? <Link style={{ color: 'white', fontWeight: 'bold' }} to={'/register'}>Register..</Link> </p>
-                    { error && <p style={{ textAlign: 'center', marginTop: '20px',color:'red', fontSize: '13px' }} >This Email is not registered!</p> }
+                    {error && <p style={{ textAlign: 'center', marginTop: '20px', color: 'red', fontSize: '13px' }} >This Email is not registered!</p>}
 
                 </div>
             </form>

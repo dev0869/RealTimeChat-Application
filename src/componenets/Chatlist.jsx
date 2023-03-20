@@ -9,7 +9,6 @@ import { signOut } from 'firebase/auth'
 import { useMessageContext } from '../context.js/MessageContext'
 import Thumbnail from './Thumbnail';
 import LogoutIcon from '@mui/icons-material/Logout';
-
 import { useChatContext } from '../context.js/AuthContext';
 import Messages from './Messages';
 import { Link } from 'react-router-dom';
@@ -19,8 +18,6 @@ const Message = () => {
     const [Msg, setMsg] = useState();
     const { data } = useMessageContext()
     const { currentUser } = useChatContext()
-    console.log(Msg)
-
     useEffect(() => {
 
 
@@ -58,20 +55,20 @@ const Chatlist = () => {
             {
                 (data.blank) ? <Thumbnail /> : <Stack direction={'column'} width={'100%'} height={'100vh'} >
                     <Stack direction={'row'} p={'14px'} sx={{ background: '#EFEFEF' }} justifyContent={'space-between'} gap={1} alignItems={'center'} position={'relative'} zIndex={99}>
-                       
-                       <Stack direction={'row'} gap={1} alignItems={'center'}>
-                        
+
+                        <Stack direction={'row'} gap={1} alignItems={'center'}>
+
                             <Link to={'/'} className='backarrow' onClick={'REFRESH'} >
                                 <KeyboardBackspaceIcon sx={{ fontSize: '30px', color: 'orangered' }} />
 
                             </Link>
-                       
+
 
                         </Stack>
                         <Stack direction={'row'} alignItems={'center'} gap={1}>
-                                <img src={data && data.user?.photoURL} alt='img' loading='lazy' className='userImg2' />
-                                <h2 style={{fontSize:'20px'}}><span>{data && data.user?.displayName}</span></h2>
-                            </Stack>
+                            <img src={data && data.user?.photoURL} alt='img' loading='lazy' className='userImg2' />
+                            <h2 style={{ fontSize: '20px' }}><span>{data && data.user?.displayName}</span></h2>
+                        </Stack>
 
 
                         <Link style={{ color: 'orangered' }} onClick={() => signOut(auth)} to={'/login'}>

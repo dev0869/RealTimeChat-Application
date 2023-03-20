@@ -5,6 +5,8 @@ import { signOut } from 'firebase/auth'
 import { auth, db } from '../Firebase'
 import Search from './Search'
 import { Link } from 'react-router-dom'
+import Compressor from 'compressorjs';
+
 // FOR REALTIME GETTING DATA
 import { doc, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from 'react'
@@ -46,8 +48,8 @@ const ContactComponent = () => {
             <div className='obj'>
                 <h1 style={{ padding: '5px 20px', alignItems: 'center' }}><span style={{ fontSize: '20px' }}> C</span>hats<span>..</span></h1>
 
-                {
-                    Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => {
+                {chats && Object.entries(chats).sort((a, b) => b[1].date - a[1].date).map((chat) => {
+                  
                         return (
 
 
@@ -55,7 +57,7 @@ const ContactComponent = () => {
 
                                 <Stack direction={'row'} alignItems={'center'} p={1} margin={'10px 12px'} justifyContent={'space-between'}>
                                     <Stack direction={'row'} alignItems={'center'} gap={2} position={'relative'} >
-                                        <img src={chat[1].userInfo && chat[1].userInfo.photoURL} alt='' className='userImg' />
+                                        <img src={chat[1].userInfo && chat[1].userInfo.photoURL} alt='' className='userImg' loading='lazy' />
                                         <Stack direction={'column'}  >
                                             <h2 className='user'>{chat[1].userInfo && chat[1].userInfo.displayName}</h2>
                                             <h2><span style={{fontSize:'16px'}}>{chat[1].userInfo && chat[1].lastMessage?.text?.substring(0, 20)}</span> </h2>
@@ -113,6 +115,7 @@ const Chat = ({ setChat, user }) => {
             <Stack direction={'column'} sx={{ height: '100vh', overflowY: 'auto' }}>
                 <Stack direction={'row'} justifyContent={'space-between'} p={'14px'} sx={{ background: '#EFEFEF' }} alignItems={'center'}>
                     <h1 className='logo'>Dev<span>T</span>alk</h1>
+                    
                     <Stack direction={'row'} gap={'10px'} alignItems={'center'}>
 
                         <StyledBadge

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stack } from '@mui/material'
 import { useState } from 'react'
-import { collection, query, where, getDocs, setDoc, doc, updateDoc, serverTimestamp, getDoc, } from "firebase/firestore";
+import { collection, query,  where,getDocs, setDoc, doc, updateDoc, serverTimestamp, getDoc, } from "firebase/firestore";
 import { db } from '../Firebase';
 import { useChatContext } from '../context.js/AuthContext';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
@@ -11,24 +11,46 @@ import AddCircleIcon from '@mui/icons-material/AddCircle'; const Search = () => 
 
     const [user, setUser] = useState(null);
     console.log(user)
+    // const handleSearch = async () => {
+    //     const q = query(
+
+    //         collection(db, "Users"),
+    //         where("displayName", "==", username)
+       
+
+    //     );
+    //     try {
+    //         const querySnapshot = await getDocs(q);
+    //         querySnapshot.forEach((doc) => {
+    //             setUser(doc.data());
+    //         });
+
+    //     } catch (err) {
+    //         console.log(err)
+    //     };
+
+    // };
     const handleSearch = async () => {
+        
+        const UppercaseUsername = username.toLowerCase(); // convert the input value to lowercase
+
         const q = query(
-            collection(db, "Users"),
-            where("displayName", "==", username)
-
-
+          collection(db, "Users"),
+             where("displayName", "==", UppercaseUsername),
         );
         try {
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                setUser(doc.data());
-            });
-
+          const querySnapshot = await getDocs(q);
+          if (!querySnapshot.empty) {
+            const docData = querySnapshot.docs[0].data();
+            setUser(docData);
+          } else {
+            setUser(null);
+          }
         } catch (err) {
-            console.log(err)
+          console.log(err);
         };
-
-    };
+      };
+      
 
     const handleKey = (e) => {
         e.code === "Enter" && handleSearch();

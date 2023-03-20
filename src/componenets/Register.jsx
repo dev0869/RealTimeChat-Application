@@ -7,6 +7,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/system';
+import imageCompression from 'browser-image-compression';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
@@ -14,55 +15,106 @@ const Register = () => {
     const Navigate = useNavigate()
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const file = e.target[0].files[0];
-        const displayName = e.target[1].value;
-        const email = e.target[2].value;
-        const password = e.target[3].value;
-        setLoading(true);
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+    //     const file = e.target[0].files[0];
+    //     const displayName = e.target[1].value;
+    //     const email = e.target[2].value;
+    //     const password = e.target[3].value;
+    //     setLoading(true);
 
-        try {
-            const res = await createUserWithEmailAndPassword(auth, email, password);
-            console.log(res)
-            const storageRef = ref(storage, displayName);
-            const uploadTask = uploadBytesResumable(storageRef, file);
-            uploadTask.on(
-                (error) => {
-                    console.log(error)
-                },
-                () => {
+    //     try {
+    //         const res = await createUserWithEmailAndPassword(auth, email, password);
+    //         console.log(res)
+    //         const storageRef = ref(storage, displayName);
+    //         const uploadTask = uploadBytesResumable(storageRef, file);
+    //         uploadTask.on(
+    //             (error) => {
+    //                 console.log(error)
+    //             },
+    //             () => {
 
-                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                        await updateProfile(res.user, {
-                            displayName,
-                            photoURL: downloadURL
-                        })
-                        // adding new data to db
-                        await setDoc(doc(db, "Users", res.user.uid), {
-                            uid: res.user.uid,
-                            displayName,
-                            email,
-                            photoURL: downloadURL
+    //                 getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+    //                     await updateProfile(res.user, {
+    //                         displayName,
+    //                         photoURL: downloadURL
+    //                     })
+    //                     // adding new data to db
+    //                     await setDoc(doc(db, "Users", res.user.uid), {
+    //                         uid: res.user.uid,
+    //                         displayName,
+    //                         email,
+    //                         photoURL: downloadURL
 
-                        });
-                        // adding chat data
-                        await setDoc(doc(db, "userChats", res.user.uid), {});
-                        Navigate('/')
-                    });
-                }
-            )
+    //                     });
+    //                     // adding chat data
+    //                     await setDoc(doc(db, "userChats", res.user.uid), {});
+    //                     Navigate('/')
+    //                 });
+    //             }
+    //         )
 
 
-        } catch (error) {
-            console.log('error', error)
-            setError(true)
-            setLoading(false);
+    //     } catch (error) {
+    //         console.log('error', error)
+    //         setError(true)
+    //         setLoading(false);
 
-        }
+    //     }
 
-     
-    }
+
+    // }
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const file = e.target[0].files[0];
+  const displayName = e.target[1].value;
+  const email = e.target[2].value;
+  const password = e.target[3].value;
+  setLoading(true);
+
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    console.log(res);
+
+    // compress the image before uploading
+    const compressedFile = await imageCompression(file, {
+      maxSizeMB: 0.3, // maximum allowed size in MB
+      maxWidthOrHeight: 500, // maximum allowed width or height
+    });
+
+    const storageRef = ref(storage, displayName);
+    const uploadTask = uploadBytesResumable(storageRef, compressedFile);
+    uploadTask.on(
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+          await updateProfile(res.user, {
+            displayName,
+            photoURL: downloadURL,
+          });
+          // adding new data to db
+          await setDoc(doc(db, 'Users', res.user.uid), {
+            uid: res.user.uid,
+            displayName,
+            email,
+            photoURL: downloadURL,
+          });
+          // adding chat data
+          await setDoc(doc(db, 'userChats', res.user.uid), {});
+          Navigate('/');
+        });
+      }
+    );
+  } catch (error) {
+    console.log('error', error);
+    setError(true);
+    setLoading(false);
+  }
+};
+
     return (
         <>
             <div class="background">
@@ -81,12 +133,8 @@ const Register = () => {
                 </Stack>
                 <input type="text" placeholder="UserName" id="name" autoComplete='off' required />
                 <input type="text" placeholder="Email " id="username" autoComplete='off' required />
-                <input type="password"  placeholder="enter 6 digits Password" id="password" />
+                <input type="password" maxLength={6} placeholder="enter 6 digits Password" id="password" />
                 <br />
-                {
-                    error ? <p>User already exist</p> : null
-                }
-
 
 
                 <button >
@@ -97,7 +145,13 @@ const Register = () => {
                 <div class="social">
                     <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '13px' }}>Do you have an account? <Link style={{ color: 'white', fontWeight: 'bold' }} to={'/login'}>login..</Link> </p>
                 </div>
+                {
+                    error && <p style={{textAlign:'center'}}>Something went wrong!</p>
+                }
+
             </form>
+
+
         </>
     )
 }

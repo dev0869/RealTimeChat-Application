@@ -32,7 +32,8 @@ html {
   box-shadow: 0px 1px 5px 0px grey;
 
 }
-.logout{
+
+.logout {
   display: none;
 }
 
@@ -120,7 +121,8 @@ Link {
   transition: 0.3s;
 
 }
-.ContactComponentS2{
+
+.ContactComponentS2 {
   padding: 9PX;
 }
 
@@ -174,7 +176,7 @@ ContactComponent2,
   border-radius: 20px;
   height: 90vh;
   padding: 16px;
-  box-shadow: inset 0px 0px 10px grey;
+  box-shadow: inset 0px 0px 10px rgba(128, 128, 128, 0.5);
   display: flex;
   overflow-y: auto;
   flex-direction: column;
@@ -245,16 +247,19 @@ ContactComponent2,
 }
 
 @media only screen and (max-width: 900px) {
-  .ContactComponent{
-    box-shadow:1px 2px 2px 1px #ecc5c59e
+  .ContactComponent {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2)
   }
-  .bar1{
+
+  .bar1 {
     padding: 10px 0;
     font-size: 19px;
   }
-  .searchbar{
+
+  .searchbar {
     font-size: 18px;
   }
+
   .lay {
     display: block;
     position: absolute;
@@ -266,7 +271,7 @@ ContactComponent2,
   .chatwidth {
     width: 100%;
   }
- 
+
 
   .App {
 
@@ -292,11 +297,13 @@ ContactComponent2,
   .messagecontainer {
     width: 94%;
     margin: 0px 11px;
-}
-  .logo{
+  }
+
+  .logo {
     font-size: 26px;
   }
-  .logout{
+
+  .logout {
     display: block;
   }
 }
